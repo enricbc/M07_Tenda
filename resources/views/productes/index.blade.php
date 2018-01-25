@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="" >
+
+
 <div class="container">
   <div class="row">
 
@@ -17,7 +20,7 @@
           <div class="card-footer bg-light" >
             <a class="card-link">{{$producte->preu}}</a>
             <a class="card-link">{{$producte->quantitat}}</a>
-            <small class="pull-right px-5" >
+            <small class="float-right pl-5" >
               <a href="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}"class="btn btn-info">Editar</a>
             </small>
           </div>
@@ -33,5 +36,5 @@
     {{$productes->render("pagination::bootstrap-4")}}
   </div>
 </div>
-
+</div>
 @endsection

@@ -12,19 +12,22 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </head>
-  <body>
+  <body >
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>Tenda M07</h1>
+          <h1 >Tenda M07 <small class="float-right px-5" >
+            <a href="{{route('ruta_crear_producte')}}"class="btn btn-dark text-light">Crear</a>
+          </small></h1>
+
         </div>
       </div>
     </div>
     <hr>
-    <div class="container">
+    <div class="container" >
 
 
       @yield('content')
-      </div>
+    </div>
   </body>
 </html>
