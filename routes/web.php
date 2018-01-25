@@ -12,3 +12,5 @@ Route::name('ruta_producte')->get('/productes/{producte}', 'ProductesController@
 Route::name('ruta_editar_producte')->get('/productes/{producte}/editar', 'ProductesController@editar');
 
 Route::name('ruta_actualitzar_producte')->put('/productes/{producte}', 'ProductesController@actualitzar');
+
+Route::name('ruta_eliminar_producte')->delete('/productes/{producte}', 'ProductesController@eliminar');

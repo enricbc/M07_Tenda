@@ -27,7 +27,7 @@ class RequestCrearProducte extends FormRequest
           'nom' => 'required',
           'preu' => 'required',
           'descripcio' =>'required',
-          'url' => 'required',
+          'url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           'quantitat' => 'required',
         ];
     }
