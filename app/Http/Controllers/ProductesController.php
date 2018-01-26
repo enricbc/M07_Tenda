@@ -30,7 +30,7 @@ class ProductesController extends Controller
 
     public function guardar(RequestCrearProducte $request)
     {
-      /*
+
       $image = $request->file('url');
 
       $ruta= time().'.'.$image->getClientOriginalExtension();
@@ -41,12 +41,11 @@ class ProductesController extends Controller
 
       $image->move($destinationPath, $input['url']);
 
-      $request->url='public/images/'.''.$ruta;
+      $request->url=(string)'public/images/'.''.$ruta;
 
-      dd($request->url);*/
 
       $producte = Producte::create($request->only('nom', 'descripcio', 'url', 'preu', 'quantitat'));
-
+      dd($request->url);
       session()->flash('misatge','Producte Creat!'); //Flash perque un cop creat es eliminat
 
       return redirect()->route('ruta_productes');
