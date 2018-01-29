@@ -31,7 +31,7 @@
 
   <div class="collapse navbar-collapse " id="navbarSupportedContent">
     @if (Auth::guest())
-        <li class="nav-item active navbar-nav">
+        <li class="nav-item  active navbar-nav">
             <a class="nav-link" href="{{ route('login') }}">Login</a>
         </li>
 

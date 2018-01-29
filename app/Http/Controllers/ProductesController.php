@@ -41,11 +41,12 @@ class ProductesController extends Controller
 
       $image->move($destinationPath, $input['url']);
 
-      $request->url=(string)'public/images/'.''.$ruta;
+      $r=(string)'public/images/'.''.$ruta;
 
+      dd($request->merge(['url'=>$r]));
 
       $producte = Producte::create($request->only('nom', 'descripcio', 'url', 'preu', 'quantitat'));
-      dd($request->url);
+      dd($r);
       session()->flash('misatge','Producte Creat!'); //Flash perque un cop creat es eliminat
 
       return redirect()->route('ruta_productes');
