@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RequestCrearProducte;
+use App\Http\Requests\RequestActualitzarProducte;
 use Illuminate\Http\Requests;
 use App\Producte;
 
@@ -22,12 +23,31 @@ class ProductesController extends Controller
 
     public function crear()
     {
-      return view('productes.crear');
+      $producte = new Producte;
+
+      return view('productes.crear')->with(['producte'=>$producte]);
     }
 
     public function guardar(RequestCrearProducte $request)
     {
+
+      $image = $request->file('url');
+
+      $ruta= time().'.'.$image->getClientOriginalExtension();
+
+      $input['url'] = $ruta;
+
+      $destinationPath = public_path('/images');
+
+      $image->move($destinationPath, $input['url']);
+
+      $r=(string)'public/images/'.''.$ruta;
+
+      dd($request->merge(['url'=>$r]));
+
       $producte = Producte::create($request->only('nom', 'descripcio', 'url', 'preu', 'quantitat'));
+      dd($r);
+      session()->flash('misatge','Producte Creat!'); //Flash perque un cop creat es eliminat
 
       return redirect()->route('ruta_productes');
     }
@@ -37,12 +57,22 @@ class ProductesController extends Controller
       return view('productes.editar')->with(['producte'=>$producte]);
     }
 
-    public function actualitzar(Producte $producte, RequestCrearProducte $request)
+    public function actualitzar(Producte $producte, RequestActualitzarProducte $request)
     {
       $producte->update(
         $request->only('nom', 'descripcio', 'url', 'preu', 'quantitat')
       );
 
+      session()->flash('misatge','Producte Actualitzat!'); //Flash perque un cop creat es eliminat
+
       return redirect()->route('ruta_producte',['producte'=>$producte->id]);
+    }
+    public function eliminar(Producte $producte)
+    {
+      $producte->delete();
+
+      session()->flash('misatge','Producte Eliminat!'); //Flash perque un cop creat es eliminat
+
+      return redirect()->route('ruta_productes');
     }
 }
