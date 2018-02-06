@@ -13,6 +13,8 @@ Route::group(['middleware'=>'auth'], function(){
   Route::name('ruta_actualitzar_producte')->put('/productes/{producte}', 'ProductesController@actualitzar');
 
   Route::name('ruta_eliminar_producte')->delete('/productes/{producte}', 'ProductesController@eliminar');
+
+  Route::get('/verificar/email/{code}', 'RegisterController@verify');
 });
 
 Route::get('/', 'ProductesController@index');
