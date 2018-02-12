@@ -6,7 +6,7 @@
     <div class="row pt-5">
       <div class="col-sm">
         <img class="rounded border border-primary"src="{{$producte->url}}" style="height:320px;width:400px;"alt="">
-      </div>
+
       <div class="col-sm">
         <div class="row">
           <h2>{{$producte->nom}}</h2>
@@ -21,18 +21,21 @@
           @if (Auth::guest())
 
           @else
-            <div class="row">
 
 
-            <small class="float-right pl-5" >
-          <a href="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}"class="btn btn-info">Editar</a>
+
+        <small class="" style="display:inline-flex;" >
+          <form action="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}">
+            <button class="btn btn-info"><i class="fa fa-edit"></button></i>
+          </form>
           <form action="{{route('ruta_eliminar_producte', ['producte'=>$producte->id])}}" method="POST">
             {{csrf_field()}}
             {{method_field('DELETE')}}
-            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <button type="submit" class="btn btn-danger"><i style="font-size:20px;"class="fa fa-trash-alt"></i></button>
           </form>
-          </small>
-          </div>
+        </small>
+</div>
+</div>
         @endif
         </div>
       </div>
@@ -43,5 +46,5 @@
       </div>
     </div>
   </div>
-</div>
+
 @endsection
