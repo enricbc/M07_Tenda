@@ -20,6 +20,10 @@
         <div class="row">
           @if (Auth::guest())
 
+            <form action="{{route('ruta_afegir_carro', ['producte'=>$producte->id])}}">
+              <button class="btn btn-success"><i class="far fa-plus-square"></i></button></i>
+            </form>
+
           @else
 
 
