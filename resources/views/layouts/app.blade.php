@@ -38,6 +38,10 @@
         <li class="nav-item active navbar-nav">
             <a class="nav-link" href="{{ route('register') }}">Register</a>
         </li>
+
+        <li style="margin-left: 84em;"class="nav-item active navbar-nav float-right">
+            <a style=" padding:0px;"class="nav-link" href="{{ route('ruta_carro') }}"><i style="font-size:30px;"class="fas fa-shopping-basket"></i></a>
+        </li>
     @else
       <li class="nav-item active navbar-nav">
           <a class="nav-link" href="{{ route('ruta_crear_producte') }}">Crear producte</a>

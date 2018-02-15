@@ -5,6 +5,9 @@
 
     <div class="col-md-12 mt-5">
       <div class="row mt-5">
+        @if (Cart::count() <= 0  )
+          <table class="table table-hover"><thead class="bg-alert"><tr><th><center>No hi han productes al carro</center></th></tr></thead></table>
+        @else
         <table class="table table-hover">
           <thead>
             <tr>
@@ -21,18 +24,18 @@
             @foreach (Cart::content() as $row)
             <tr>
               <input hidden type="text" name="id" value="{{$row->id}}">
-              <td class="col-md-2">{{$row->name}}</td>
+              <td class="col-md-2"><a style="text-decoration:none;"class="text-dark" href="{{route('ruta_producte', ['producte'=>$row->id])}}">{{$row->name}}</a></td>
               <td><a href="{{route('ruta_afegir_carro', ['producte'=>$row->id])}}"><i class="far fa-plus-square text-success float-right" style="font-size:40px"></i></a></td>
               <td><a href="{{route('ruta_eliminar_carro', ['producte'=>$row->rowId])}}"><i class="far fa-trash-alt text-danger float-right" style="font-size:38px"></i></a></td>
-              <td>
+              <td class="col-3">
                 <form class="" action="{{route('ruta_actualitzar_carro', ['producte'=>$row->rowId])}}">
                   <div class="row">
-                    <div class="col">
-                      <input class="form-control"type="number" name="quantitat" value="{{$row->qty}}">
+                    <div class="">
+                      <input class="form-control "type="number" style="width: 59px;" name="quantitat" value="{{$row->qty}}">
                     </div>
                   </div>
               </td>
-              <td><button class="btn btn-success"><i class="far fa-plus-square"></i></button></i></form></td>
+              <td><button style="border:none; background-color: transparent;" ><i style="font-size:40px;" class="text-success far fa-arrow-alt-circle-left"></i></button></i></form></td>
               <td class="col-md-2">{{$row->qty}}</td>
               <td class="col-md-auto">{{$row->price}}</td>
             </tr>
@@ -67,6 +70,7 @@
        	      </table>
             </div>
           </div>
+          @endif
         </div>
       </div>
 @endsection

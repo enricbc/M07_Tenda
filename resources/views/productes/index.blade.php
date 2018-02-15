@@ -11,7 +11,7 @@
       <div class="col-sm-4">
         <div class="card mt-4" style="height: 18em;width:20em">
           <div class="card-header bg-success ">
-            <h5 class="card-title "><a class="text-light"href="{{ route('ruta_producte', ['producte'=>$producte->id])}}">{{$producte->nom}}</a></h5>
+            <h5 class="card-title "><a style="text-decoration:none;" class="text-light"href="{{ route('ruta_producte', ['producte'=>$producte->id])}}">{{$producte->nom}}</a></h5>
           </div>
           @if (Auth::guest())
             <a href="{{ route('ruta_producte', ['producte'=>$producte->id])}}"><img class="card-img-top" height="175px"src="{{$producte->url}}" alt=""></a>
