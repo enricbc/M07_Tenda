@@ -21,7 +21,7 @@
     </script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
     <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}
     </a>
@@ -40,7 +40,10 @@
         </li>
 
         <li style="margin-left: 84em;"class="nav-item active navbar-nav float-right">
-            <a style=" padding:0px;"class="nav-link" href="{{ route('ruta_carro') }}"><i style="font-size:30px;"class="fas fa-shopping-basket"></i></a>
+            <a style=" padding:0px;"class="nav-link" href="{{ route('ruta_carro') }}">
+				      <i style="font-size:30px;"class="fas fa-shopping-basket"></i>
+              <span class="badge badge-info">{{Cart::count()}}</span>
+			</a>
         </li>
     @else
       <li class="nav-item active navbar-nav">
