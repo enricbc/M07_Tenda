@@ -20,3 +20,7 @@ Route::get('/', 'ProductesController@index');
 Route::name('ruta_productes')->get('/productes', 'ProductesController@index');
 /*UN PRODUCTE*/
 Route::name('ruta_producte')->get('/productes/{producte}', 'ProductesController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

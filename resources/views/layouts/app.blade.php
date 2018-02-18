@@ -63,6 +63,8 @@
 </nav>
   <!--MARKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
 <div class="container">
+  @include('layouts._errors')
+  @include('layouts._misatges')
   @yield('content')
 </div>
 
