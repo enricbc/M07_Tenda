@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Mail;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -62,10 +63,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+       $data['confirmation_code'] = str_random(25);
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'confirmation_code' => $data['confirmation_code']
         ]);
+
+        Mail::send('emails.confirmation_code', $data, function($message) use ($data) {
+        $message->to($data['email'], $data['name'])->subject('Por favor confirma tu correo');
+        });
+
+        return $user;
+    }
+    public function verify($code)
+    {
+        $user = User::where('confirmation_code', $code)->first();
+
+        if (! $user)
+            return redirect('/');
+
+        $user->confirmed = true;
+        $user->confirmation_code = null;
+        $user->save();
+
+        return redirect('/index')->with('notification', 'Has confirmado correctamente tu correo!');
     }
 }

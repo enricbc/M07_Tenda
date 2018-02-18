@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -21,7 +21,7 @@
     </script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
     <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}
     </a>
@@ -37,6 +37,13 @@
 
         <li class="nav-item active navbar-nav">
             <a class="nav-link" href="{{ route('register') }}">Register</a>
+        </li>
+
+        <li style="margin-left: 84em;"class="nav-item active navbar-nav float-right">
+            <a style=" padding:0px;"class="nav-link" href="{{ route('ruta_carro') }}">
+				      <i style="font-size:30px;"class="fas fa-shopping-basket"></i>
+              <span class="badge badge-info">{{Cart::count()}}</span>
+			</a>
         </li>
     @else
       <li class="nav-item active navbar-nav">
