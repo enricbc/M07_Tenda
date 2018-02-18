@@ -22,12 +22,12 @@ Route::get('/', 'ProductesController@index');
 Route::name('ruta_productes')->get('/productes', 'ProductesController@index');
 /*UN PRODUCTE*/
 Route::name('ruta_producte')->get('/productes/{producte}', 'ProductesController@show');
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-=======
+//=======
 /*Afegir al carro*/
 Route::name('ruta_afegir_carro')->get('/carro/{producte}', 'CarroController@afegir');
 /*Mostrar carro*/
@@ -36,4 +36,4 @@ Route::name('ruta_carro')->get('/carro', 'CarroController@index');
 Route::name('ruta_eliminar_carro')->get('/carro/del/{producte}', 'CarroController@eliminar');
 /*Actualitzar carro*/
 Route::name('ruta_actualitzar_carro')->get('/carro/up/{producte}', 'CarroController@actualitzar');
->>>>>>> origin/Enric
+//>>>>>>> origin/Enric
