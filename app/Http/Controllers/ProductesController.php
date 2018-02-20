@@ -47,12 +47,7 @@ class ProductesController extends Controller
 
       $r=(string)$request->root().'/images/'.''.$ruta;
 
-
-    //  dd($request->merge(['url'=>$r]));
-     //$rutas = array_add(['nom' => $request->nom], 'descripcio', $request->descripcio, 'url',$r);
-     //array_push($inputs,"url"=>$r);
      $inputs = array_merge($inputs, array("url"=>$r));
-
 
       $producte = Producte::create($inputs);
 
@@ -69,8 +64,27 @@ class ProductesController extends Controller
 
     public function actualitzar(Producte $producte, RequestActualitzarProducte $request)
     {
+      $inputs=$request->only('nom', 'descripcio', 'preu', 'quantitat');
+
+      $image = $request->file('url');
+
+      if(!is_null($image)){
+      $ruta= time().'.'.$image->getClientOriginalExtension();
+
+      $input['url'] = $ruta;
+
+      $destinationPath = public_path('images');
+
+
+      $image->move($destinationPath, $input['url']);
+
+
+      $r=(string)$request->root().'/images/'.''.$ruta;
+
+     $inputs = array_merge($inputs, array("url"=>$r));
+   }
       $producte->update(
-        $request->only('nom', 'descripcio', 'url', 'preu', 'quantitat')
+        $inputs
       );
 
       session()->flash('misatge','Producte Actualitzat!'); //Flash perque un cop creat es eliminat
