@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<div class="container">
     <div class="col-md-12 mt-5">
       <div class="row mt-5">
         @if (Cart::count() <= 0  )
@@ -73,4 +73,5 @@
           @endif
         </div>
       </div>
+    </div>
 @endsection
