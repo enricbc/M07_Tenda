@@ -81,6 +81,11 @@ class ComposerStaticInit23af50d4d329bccd6644fc45c45a359c
         array (
             'Illuminate\\' => 11,
         ),
+        'G' => 
+        array (
+            'Gloudemans\\Shoppingcart\\' => 24,
+            'Gloudemans\\Notify\\' => 18,
+        ),
         'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
@@ -237,6 +242,14 @@ class ComposerStaticInit23af50d4d329bccd6644fc45c45a359c
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'Gloudemans\\Shoppingcart\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gloudemans/shoppingcart/src',
+        ),
+        'Gloudemans\\Notify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gloudemans/notify/src',
         ),
         'Fideloper\\Proxy\\' => 
         array (
@@ -1276,6 +1289,26 @@ class ComposerStaticInit23af50d4d329bccd6644fc45c45a359c
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'Gloudemans\\Notify\\Escaping' => __DIR__ . '/..' . '/gloudemans/notify/src/Escaping.php',
+        'Gloudemans\\Notify\\LaravelNotifyServiceProvider' => __DIR__ . '/..' . '/gloudemans/notify/src/LaravelNotifyServiceProvider.php',
+        'Gloudemans\\Notify\\Notifications\\AddsNotifications' => __DIR__ . '/..' . '/gloudemans/notify/src/Notifications/AddsNotifications.php',
+        'Gloudemans\\Notify\\Notifications\\Notification' => __DIR__ . '/..' . '/gloudemans/notify/src/Notifications/Notification.php',
+        'Gloudemans\\Notify\\Notifications\\NotificationFacade' => __DIR__ . '/..' . '/gloudemans/notify/src/Notifications/NotificationFacade.php',
+        'Gloudemans\\Notify\\Notifications\\NotificationRenderer' => __DIR__ . '/..' . '/gloudemans/notify/src/Notifications/NotificationRenderer.php',
+        'Gloudemans\\Notify\\Notifications\\Renderers\\BootboxRenderer' => __DIR__ . '/..' . '/gloudemans/notify/src/Notifications/Renderers/BootboxRenderer.php',
+        'Gloudemans\\Notify\\Notifications\\Renderers\\NativeRenderer' => __DIR__ . '/..' . '/gloudemans/notify/src/Notifications/Renderers/NativeRenderer.php',
+        'Gloudemans\\Notify\\Notifications\\Renderers\\SweetAlertRenderer' => __DIR__ . '/..' . '/gloudemans/notify/src/Notifications/Renderers/SweetAlertRenderer.php',
+        'Gloudemans\\Notify\\Notifications\\Renderers\\ToastrRenderer' => __DIR__ . '/..' . '/gloudemans/notify/src/Notifications/Renderers/ToastrRenderer.php',
+        'Gloudemans\\Shoppingcart\\CanBeBought' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/CanBeBought.php',
+        'Gloudemans\\Shoppingcart\\Cart' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Cart.php',
+        'Gloudemans\\Shoppingcart\\CartItem' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/CartItem.php',
+        'Gloudemans\\Shoppingcart\\CartItemOptions' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/CartItemOptions.php',
+        'Gloudemans\\Shoppingcart\\Contracts\\Buyable' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Contracts/Buyable.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\CartAlreadyStoredException' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Exceptions/CartAlreadyStoredException.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\InvalidRowIDException' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Exceptions/InvalidRowIDException.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\UnknownModelException' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Exceptions/UnknownModelException.php',
+        'Gloudemans\\Shoppingcart\\Facades\\Cart' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Facades/Cart.php',
+        'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/ShoppingcartServiceProvider.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',

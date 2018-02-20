@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "bb4b19eb0a146163470bb5556a517ee5",
-=======
-    "content-hash": "6e57aaa659552e01fe766d9614a4f015",
->>>>>>> origin/Enric
+    "content-hash": "c521b05130d40df4c0ee782cfe1fd554",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -324,28 +320,77 @@
             "time": "2017-06-15T17:19:42+00:00"
         },
         {
-            "name": "gloudemans/shoppingcart",
-            "version": "2.4.0",
+            "name": "gloudemans/notify",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Crinsane/LaravelShoppingcart.git",
-                "reference": "095a260a7cdd3575b39044738c5db2d50c984e55"
+                "url": "https://github.com/Crinsane/LaravelNotify.git",
+                "reference": "e1320ecbf50c53ad211945b462e20302ab453c40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Crinsane/LaravelShoppingcart/zipball/095a260a7cdd3575b39044738c5db2d50c984e55",
-                "reference": "095a260a7cdd3575b39044738c5db2d50c984e55",
+                "url": "https://api.github.com/repos/Crinsane/LaravelNotify/zipball/e1320ecbf50c53ad211945b462e20302ab453c40",
+                "reference": "e1320ecbf50c53ad211945b462e20302ab453c40",
                 "shasum": ""
             },
             "require": {
-                "illuminate/events": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
-                "illuminate/session": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
-                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*"
+                "illuminate/session": "^5.1",
+                "illuminate/support": "^5.1",
+                "illuminate/view": "^5.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gloudemans\\Notify\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "robgloudemans@gmail.com"
+                }
+            ],
+            "description": "Laravel Notifications",
+            "keywords": [
+                "flashnotifictions",
+                "laravel",
+                "notifications",
+                "notify"
+            ],
+            "time": "2015-08-22T14:26:09+00:00"
+        },
+        {
+            "name": "gloudemans/shoppingcart",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Crinsane/LaravelShoppingcart.git",
+                "reference": "7ff157b7e1ef10d27cd2759d5151aae2cc6b1b9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Crinsane/LaravelShoppingcart/zipball/7ff157b7e1ef10d27cd2759d5151aae2cc6b1b9a",
+                "reference": "7ff157b7e1ef10d27cd2759d5151aae2cc6b1b9a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/events": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*",
+                "illuminate/session": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9.0",
                 "orchestra/testbench": "~3.1",
-                "phpunit/phpunit": "~5.0|~6.0"
+                "phpunit/phpunit": "~5.0|~6.0|~7.0"
             },
             "suggest": {
                 "gloudemans/notify": "Simple flash notifications for Laravel"
@@ -381,7 +426,7 @@
                 "laravel",
                 "shoppingcart"
             ],
-            "time": "2017-09-02T08:44:31+00:00"
+            "time": "2018-02-17T09:34:00+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",

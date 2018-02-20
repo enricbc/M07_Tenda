@@ -26,17 +26,19 @@
 
           @else
 
-
-
         <small class="" style="display:inline-flex;" >
-          <form action="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}">
+          @can('editar_productes')
+          <form action="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}">            
             <button class="btn btn-info"><i class="fa fa-edit"></button></i>
           </form>
+          @endcan
+          @can('eliminar_productes')
           <form action="{{route('ruta_eliminar_producte', ['producte'=>$producte->id])}}" method="POST">
-            {{csrf_field()}}
-            {{method_field('DELETE')}}
-            <button type="submit" class="btn btn-danger"><i style="font-size:20px;"class="fa fa-trash-alt"></i></button>
+              {{csrf_field()}}
+              {{method_field('DELETE')}}
+              <button type="submit" class="btn btn-danger"><i style="font-size:20px;"class="fa fa-trash-alt"></i></button>
           </form>
+          @endcan
         </small>
 </div>
 </div>

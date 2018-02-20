@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -21,7 +21,7 @@
     </script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
     <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
         <?php echo e(config('app.name', 'Laravel')); ?>
 
@@ -39,10 +39,20 @@
         <li class="nav-item active navbar-nav">
             <a class="nav-link" href="<?php echo e(route('register')); ?>">Register</a>
         </li>
+
+        <li style="margin-left: 84em;"class="nav-item active navbar-nav float-right">
+            <a style=" padding:0px;"class="nav-link" href="<?php echo e(route('ruta_carro')); ?>">
+				      <i style="font-size:30px;"class="fas fa-shopping-basket"></i>
+              <span class="badge badge-info"><?php echo e(Cart::count()); ?></span>
+			</a>
+        </li>
     <?php else: ?>
-      <li class="nav-item active navbar-nav">
-          <a class="nav-link" href="<?php echo e(route('ruta_crear_producte')); ?>">Crear producte</a>
-      </li>
+      <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('crear_productes')): ?> <!-- Visble solament pels usuaris amb permisos per a crear productes--> 
+        <li class="nav-item active navbar-nav">
+          
+            <a class="nav-link" href="<?php echo e(route('ruta_crear_producte')); ?>">Crear producte</a>
+        </li>
+      <?php endif; ?>
         <li class="nav-item active navbar-nav dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
@@ -58,7 +68,7 @@
 
             </form>
           </div>
-        </div>
+        <!--</div>-->
       </li>
     <?php endif; ?>
   </div>

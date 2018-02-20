@@ -5,9 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\src\Models\Role;
 
 class User extends Authenticatable
-{
+{   
+    use HasRoles;   //trait que ens ofereix mètodes per a treballar amb rols i permisos d'usuari
     use Notifiable;
 
     /**

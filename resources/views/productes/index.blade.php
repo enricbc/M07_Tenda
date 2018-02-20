@@ -28,12 +28,16 @@
 
               @else
                 <small class="float-right pl-5" >
-              <a href="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}"class="btn btn-info">Editar</a>
-              <form action="{{route('ruta_eliminar_producte', ['producte'=>$producte->id])}}" method="POST">
-                {{csrf_field()}}
-                {{method_field('DELETE')}}
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-              </form>
+              @can('editar_productes')
+                <a href="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}"class="btn btn-info">Editar</a>
+              @endcan
+              @can('eliminar_productes')
+                <form action="{{route('ruta_eliminar_producte', ['producte'=>$producte->id])}}" method="POST">
+                  {{csrf_field()}}
+                  {{method_field('DELETE')}}
+                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+              @endcan
               </small>
             @endif
 
