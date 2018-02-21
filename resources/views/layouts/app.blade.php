@@ -21,7 +21,7 @@
         ]) !!};
     </script>
 </head>
-<body style="background-color:#e5f4e7;">
+<body style="background-color:#ecf0ff;">
   <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-primary navbar-static-top">
     <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}

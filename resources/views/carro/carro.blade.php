@@ -62,7 +62,6 @@
                     <td>Comprar</td>
                     <td>
                       <div class="btn btn-info container-fluid">
-
                       </div>
                     </td>
                   </tr>

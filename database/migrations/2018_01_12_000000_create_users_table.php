@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->boolean('confirmed')->default(0);
             $table->string('confirmation_code')->nullable();
+            $table->string('google_id');
             $table->rememberToken();
             $table->timestamps();
         });

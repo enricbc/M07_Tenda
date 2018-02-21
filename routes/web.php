@@ -30,3 +30,13 @@ Route::name('ruta_carro')->get('/carro', 'CarroController@index');
 Route::name('ruta_eliminar_carro')->get('/carro/del/{producte}', 'CarroController@eliminar');
 /*Actualitzar carro*/
 Route::name('ruta_actualitzar_carro')->get('/carro/up/{producte}', 'CarroController@actualitzar');
+
+//GOOGLE LOGIN
+Route::name('google')->get('google', function () {
+    return view('googleAuth');
+});
+
+//redirect and callback URLs
+
+Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
