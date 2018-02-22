@@ -75,7 +75,7 @@
                                   </button>
                                 </div>
                                 <div class="col">
-                                  <a href="{{ url('auth/google') }}" class=" btn btn-lg btn-danger btn-block">
+                                  <a id="shine" href="{{ url('auth/google') }}" class="btn btn-lg btn-danger btn-block">
                                       Login With Google
                                   </a>
                                 </div>

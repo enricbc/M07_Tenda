@@ -21,7 +21,7 @@
         ]) !!};
     </script>
 </head>
-<body style="background-image:url('https://source.unsplash.com/featured/?shop/2920x2080');background-repeat: no-repeat;background-size:cover;">
+<body style="background-image:url('https://source.unsplash.com/featured/?shop');background-repeat: no-repeat;background-size:cover;height: 100vh;">
   <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-primary navbar-static-top">
     <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}
