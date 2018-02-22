@@ -11,7 +11,8 @@
     <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Scripts -->
     <script>
@@ -20,8 +21,8 @@
         ]); ?>;
     </script>
 </head>
-<body>
-  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
+<body style="background-color:#e5f4e7;">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-primary navbar-static-top">
     <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
         <?php echo e(config('app.name', 'Laravel')); ?>
 
@@ -53,11 +54,17 @@
             <a class="nav-link" href="<?php echo e(route('ruta_crear_producte')); ?>">Crear producte</a>
         </li>
       <?php endif; ?>
+      <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('llistar_usuaris')): ?>
+          <li class="nav-item active navbar-nav">
+          
+            <a class="nav-link" href="<?php echo e(route('ruta_llistar_usuaris')); ?>">Llistar usuaris</a>
+        </li>
+      <?php endif; ?>
         <li class="nav-item active navbar-nav dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" >
             <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu" >
             <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
@@ -68,23 +75,21 @@
 
             </form>
           </div>
-        <!--</div>-->
       </li>
     <?php endif; ?>
   </div>
 </nav>
   <!--MARKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
-<div class="container">
+
   <?php echo $__env->make('layouts._errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   <?php echo $__env->make('layouts._misatges', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   <?php echo $__env->yieldContent('content'); ?>
-</div>
+
 
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="<?php echo e(asset('js/app.js')); ?>">
 
+    </script>
 </body>
 </html>

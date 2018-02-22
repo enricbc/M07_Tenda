@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <!--Comensar carrousel-->
+  <!--Començar carrousel-->
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner shadow-all-3i" style="" id="splash">
     @for ($i=0; $i < 3; $i++)

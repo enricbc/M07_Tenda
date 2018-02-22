@@ -1,23 +1,46 @@
 <?php $__env->startSection('content'); ?>
+  <!--Començar carrousel-->
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner shadow-all-3i" style="" id="splash">
+    <?php for($i=0; $i < 3; $i++): ?>
+      <?php if($i == 0): ?>
+      <div class="parallax carousel-item active"style="height:520px;background: url('http://localhost:82/M07/M07_tenda/public/images/offer.jpg');">
+      <?php else: ?>
+      <div class="parallax carousel-item"style="height:520px;background: url(<?php echo e($productes[$i]->url); ?>);">
+      <?php endif; ?>
 
-
-
-<div class="container">
-  <div class="row">
+      </div>
+    <?php endfor; ?>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+  <!-- Final carrousel-->
+<div class="container mt-5">
+  <div class="row mt-5">
   <?php $__currentLoopData = $productes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $producte): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
       <div class="col-sm-4">
-        <div class="card mt-4" style="height: 18em;width:20em">
-          <div class="card-header bg-success ">
-            <h5 class="card-title "><a style="text-decoration:none;" class="text-light"href="<?php echo e(route('ruta_producte', ['producte'=>$producte->id])); ?>"><?php echo e($producte->nom); ?></a></h5>
-          </div>
+        <div class="card my-4" style="height: 18em;width:20em">
           <?php if(Auth::guest()): ?>
-            <a href="<?php echo e(route('ruta_producte', ['producte'=>$producte->id])); ?>"><img class="card-img-top" height="175px"src="<?php echo e($producte->url); ?>" alt=""></a>
-          <div class="card-footer bg-light" >
-            <a class="card-link">Preu: <?php echo e($producte->preu); ?></a>
+            <a href="<?php echo e(route('ruta_producte', ['producte'=>$producte->id])); ?>"><img class="card-img-top" height="200px"src="<?php echo e($producte->url); ?>" alt=""></a>
+          <div class="card-body p-0 bg-light" >
+            <div class="container">
+              <div class="row mt-1">
+                <div class="col">
+                <h6 class="text-center"><?php echo e($producte->nom); ?></h6>
+                <h5 class="text-center my-0"><?php echo e($producte->preu); ?> €</h5>
+                </div>
+              </div>
+            </div>
           <?php else: ?>
-            <a href="<?php echo e(route('ruta_producte', ['producte'=>$producte->id])); ?>"><img class="card-img-top"style="height:100px;" src="<?php echo e($producte->url); ?>" alt=""></a>
-          <div class="card-footer bg-light" >
+            <a href="<?php echo e(route('ruta_producte', ['producte'=>$producte->id])); ?>"><img class="card-img-top"style="height:160px;" src="<?php echo e($producte->url); ?>" alt=""></a>
+          <div class="card-body bg-light" >
             <a class="card-link">Preu: <?php echo e($producte->preu); ?></a><br>
             <a class="card-link">Quantitat: <?php echo e($producte->quantitat); ?></a>
           <?php endif; ?>

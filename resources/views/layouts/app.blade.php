@@ -53,6 +53,12 @@
             <a class="nav-link" href="{{ route('ruta_crear_producte') }}">Crear producte</a>
         </li>
       @endcan
+      @can('llistar_usuaris')
+          <li class="nav-item active navbar-nav">
+          
+            <a class="nav-link" href="{{ route('ruta_llistar_usuaris') }}">Llistar usuaris</a>
+        </li>
+      @endcan
         <li class="nav-item active navbar-nav dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" >
             {{ Auth::user()->name }} <span class="caret"></span>
