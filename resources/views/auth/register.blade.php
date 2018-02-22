@@ -9,7 +9,7 @@
 
 
           <div class="bg-white rounded px-5 pt-3 mr-auto ml-auto mt-5">
-              <div class="panel panel-default">
+              <div class="panel panel-default pb-3">
                   <div class="panel-heading mt-0"><h2 id="title">Registre</h2></div>
 
                   <div class="panel-body">

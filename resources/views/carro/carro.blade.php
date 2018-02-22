@@ -65,7 +65,7 @@
                       <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{{route('paypal')}}" >
                           {{ csrf_field() }}
                           <button type="submit" class="btn btn-primary">
-                              Paywith Paypal
+                              <i style="font-size:26px;color:#007bff;"class="fab fa-cc-paypal"></i>Paywith Paypal
                           </button>
                           <input type="text" hidden name="amount" value="{{Cart::total()}}">
                       </form>
@@ -77,7 +77,7 @@
        	      </table>
               <p>
                   <a href="{{ route('ruta_pdf_carro') }}" class="btn btn-sm btn-primary">
-                      Descargar productos en PDF
+                      <i class="far fa-file-alt"></i> Descargar productos en PDF
                   </a>
               </p>
             </div>
