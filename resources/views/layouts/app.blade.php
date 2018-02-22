@@ -56,7 +56,7 @@
       @can('llistar_usuaris')
           <li class="nav-item active navbar-nav">
           
-            <a class="nav-link" href="{{ route('ruta_llistar_usuaris') }}">Llistar usuaris</a>
+            <a class="nav-link" href="{{ route('llistar_usuaris') }}">Llistar usuaris</a>
         </li>
       @endcan
         <li class="nav-item active navbar-nav dropdown">

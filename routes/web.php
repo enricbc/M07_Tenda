@@ -40,15 +40,15 @@ Route::name('ruta_eliminar_carro')->get('/carro/del/{producte}', 'CarroControlle
 Route::name('ruta_actualitzar_carro')->get('/carro/up/{producte}', 'CarroController@actualitzar');
 
 
-Route::get('/users', 'UserController@index')->name('ruta_llistar_usuaris');
-Route::get('/users','UserController@roles_by_user')->name('role_name');
+Route::get('/users', 'UserController@index')->name('llistar_usuaris');
+//Route::get('/users/{id}','UserController@roles_by_user')->name('role_name');
 
 /*Route::get(
-   'role_name', 
+   '/users', 
    [
       'as'   => 'role_name',
-      'uses' => 'AppController@show'
+      'uses' => 'UserController@roles_by_user'
    ]
-))*/
+);*/
 
 //Route::get('users/{id}/llistar_usuaris', 'NotesController@destroy')->name('notes.destroy');

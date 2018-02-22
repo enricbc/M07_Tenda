@@ -13,7 +13,7 @@
 		      <th class="col-2">Nom</th>
 		      <th class="col-3">Correu electrònic</th>
 		      <th class="col-2">Rol</th>
-		      <th class="col-4">Permisos disponibles</th>
+		      <th class="col-2">Permisos</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -24,8 +24,8 @@
 	                <td class="col-1"><?php echo e($user->id); ?></td>
 	                <td class="col-2"><?php echo e($user->name); ?></td>
 	                <td class="col-3"><?php echo e($user->email); ?></td>
-	                <td class="col-2"><?php echo e($roles->name); ?></td>
-	                <td class="col-4"><?php echo e($user->permissions); ?></td>
+	                <td class="col-2"><?php echo e($user->getRoleNames()->implode('name')); ?></td>
+	                <td class="col-2"><?php echo e($user->getAllPermissions()->implode('name', ', ')); ?></td>
 	            </tr>
 	        </div>
 	        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

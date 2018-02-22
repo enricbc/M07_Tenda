@@ -15,7 +15,7 @@
 		      <th class="col-2">Nom</th>
 		      <th class="col-3">Correu electrònic</th>
 		      <th class="col-2">Rol</th>
-		      <th class="col-4">Permisos disponibles</th>
+		      <th class="col-2">Permisos</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -26,8 +26,8 @@
 	                <td class="col-1">{{ $user->id }}</td>
 	                <td class="col-2">{{ $user->name }}</td>
 	                <td class="col-3">{{ $user->email }}</td>
-	                <td class="col-2">{{ $roles->name}}</td>
-	                <td class="col-4">{{ $user->permissions}}</td>
+	                <td class="col-2">{{ $user->getRoleNames()->implode('name')}}</td>
+	                <td class="col-2">{{ $user->getAllPermissions()->implode('name', ', ')}}</td>
 	            </tr>
 	        </div>
 	        @endforeach

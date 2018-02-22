@@ -57,7 +57,7 @@
       <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('llistar_usuaris')): ?>
           <li class="nav-item active navbar-nav">
           
-            <a class="nav-link" href="<?php echo e(route('ruta_llistar_usuaris')); ?>">Llistar usuaris</a>
+            <a class="nav-link" href="<?php echo e(route('llistar_usuaris')); ?>">Llistar usuaris</a>
         </li>
       <?php endif; ?>
         <li class="nav-item active navbar-nav dropdown">

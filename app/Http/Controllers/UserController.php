@@ -7,6 +7,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\Http\Auth;
 
 
 class UserController extends Controller
@@ -18,8 +20,28 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('roles')->get();
-        return view('users.index', compact('users'));
+        //$users = User::with('roles')->get();
+        $users = User::all();
+  
+        /*$query = "SELECT u.id,u.name as usuari,u.email,r.name as rol, (
+
+                        SELECT p.name
+                        FROM permissions as p
+                        LEFT JOIN role_has_permissions as rhp
+                        ON rhp.permission_id = p.id
+                        LEFT JOIN roles ro
+                        ON ro.id = rhp.role_id
+                        WHERE ro.id = r.id) as permis
+
+                  FROM users as u
+                  LEFT JOIN roles as r
+                  ON u.id_role = r.id";*/
+
+        //$query2 ="SELECT "           
+
+       // $users = DB::select($query);
+        //dd($users);
+        return view('users.index')->with('users',$users);
     }
 
     /**
@@ -97,7 +119,7 @@ class UserController extends Controller
         //print_r($role->name) ;
 
         //$roles = DB::table('roles')->pluck('id','name');
-        $roles = new Role;
+        //$roles = Role::findById($id, 'web');
         $query = "SELECT roles.name
                   FROM roles
                   LEFT JOIN users
