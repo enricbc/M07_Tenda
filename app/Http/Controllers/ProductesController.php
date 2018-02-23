@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Routing\UrlGenerator;
 use App\Http\Requests\RequestCrearProducte;
 use App\Http\Requests\RequestActualitzarProducte;
 use Illuminate\Http\Requests;
@@ -31,22 +31,27 @@ class ProductesController extends Controller
     public function guardar(RequestCrearProducte $request)
     {
 
+      $inputs=$request->only('nom', 'descripcio', 'preu', 'quantitat');
+
       $image = $request->file('url');
 
       $ruta= time().'.'.$image->getClientOriginalExtension();
 
       $input['url'] = $ruta;
 
-      $destinationPath = public_path('/images');
+      $destinationPath = public_path('images');
+
 
       $image->move($destinationPath, $input['url']);
 
-      $r=(string)'public/images/'.''.$ruta;
 
-      dd($request->merge(['url'=>$r]));
+      $r=(string)$request->root().'/images/'.''.$ruta;
 
-      $producte = Producte::create($request->only('nom', 'descripcio', 'url', 'preu', 'quantitat'));
-      dd($r);
+     $inputs = array_merge($inputs, array("url"=>$r));
+
+      $producte = Producte::create($inputs);
+
+    //  dd($r);
       session()->flash('misatge','Producte Creat!'); //Flash perque un cop creat es eliminat
 
       return redirect()->route('ruta_productes');
@@ -59,8 +64,27 @@ class ProductesController extends Controller
 
     public function actualitzar(Producte $producte, RequestActualitzarProducte $request)
     {
+      $inputs=$request->only('nom', 'descripcio', 'preu', 'quantitat');
+
+      $image = $request->file('url');
+
+      if(!is_null($image)){
+      $ruta= time().'.'.$image->getClientOriginalExtension();
+
+      $input['url'] = $ruta;
+
+      $destinationPath = public_path('images');
+
+
+      $image->move($destinationPath, $input['url']);
+
+
+      $r=(string)$request->root().'/images/'.''.$ruta;
+
+     $inputs = array_merge($inputs, array("url"=>$r));
+   }
       $producte->update(
-        $request->only('nom', 'descripcio', 'url', 'preu', 'quantitat')
+        $inputs
       );
 
       session()->flash('misatge','Producte Actualitzat!'); //Flash perque un cop creat es eliminat
