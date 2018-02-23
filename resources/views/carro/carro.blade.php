@@ -25,13 +25,14 @@
             <tr>
               <input hidden type="text" name="id" value="{{$row->id}}">
               <td class="col-md-2"><a style="text-decoration:none;"class="text-dark" href="{{route('ruta_producte', ['producte'=>$row->id])}}">{{$row->name}}</a></td>
-              <td><a href="{{route('ruta_afegir_carro', ['producte'=>$row->id])}}"><i class="far fa-plus-square text-success float-right" style="font-size:40px"></i></a></td>
+              <td><a href="{{route('ruta_afegir_carro', ['producte'=>$row->id,'rid'=>$row->rowId])}}"><i class="far fa-plus-square text-success float-right" style="font-size:40px"></i></a></td>
               <td><a href="{{route('ruta_eliminar_carro', ['producte'=>$row->rowId])}}"><i class="far fa-trash-alt text-danger float-right" style="font-size:38px"></i></a></td>
               <td class="col-3">
                 <form class="" action="{{route('ruta_actualitzar_carro', ['producte'=>$row->rowId])}}">
                   <div class="row">
                     <div class="">
-                      <input class="form-control "type="number" style="width: 59px;" name="quantitat" value="{{$row->qty}}">
+                      <input class="form-control "type="number" max=""style="width: 59px;" name="quantitat" value="{{$row->qty}}">
+                      <input hidden type="text" name="id" value="{{$row->id}}">
                     </div>
                   </div>
               </td>
@@ -61,13 +62,24 @@
                   <tr>
                     <td>Comprar</td>
                     <td>
-                      <div class="btn btn-info container-fluid">
-
+                      <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{{route('paypal')}}" >
+                          {{ csrf_field() }}
+                          <button type="submit" class="btn btn-primary">
+                              <i style="font-size:26px;color:#007bff;"class="fab fa-cc-paypal"></i>Paywith Paypal
+                          </button>
+                          <input type="text" hidden name="amount" value="{{Cart::total()}}">
+                      </form>
+                      </div>
                       </div>
                     </td>
                   </tr>
                 </tbody>
        	      </table>
+              <p>
+                  <a href="{{ route('ruta_pdf_carro') }}" class="btn btn-sm btn-primary">
+                      <i class="far fa-file-alt"></i> Descargar productos en PDF
+                  </a>
+              </p>
             </div>
           </div>
           @endif

@@ -21,6 +21,7 @@ let mix = require('laravel-mix');
      'node_modules/axios/dist/axios.js',
      'resources/assets/js/initPlugins.js',
      'resources/assets/js/web.js',
+     'resources/assets/js/shine.min.js',
      //
      //  'resources/assets/js/app.js',
    ], 'public/js/app.js')

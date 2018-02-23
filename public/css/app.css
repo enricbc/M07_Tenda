@@ -4,13 +4,13 @@
 
 *::-moz-selection {
   /* Code for Firefox */
-  color: #fff;
-  background: #2d728f;
+  color: #343a40;
+  background: #99cda9;
 }
 
 *::selection {
-  color: #fff;
-  background: #2d728f;
+  color: #343a40;
+  background: #99cda9;
 }
 
 .bg-cream {
@@ -10159,3 +10159,13 @@ p {
   font-size: 115%;
   font-family: 'Indie Flower', cursive;
 }
+<<<<<<< HEAD
+=======
+
+#title {
+  font-family: 'Lobster', cursive;
+  font-size: 59px;
+  font-weight: 50;
+}
+
+>>>>>>> c58626e3aad1382ffef773dc9b4b9ad8eb05e441

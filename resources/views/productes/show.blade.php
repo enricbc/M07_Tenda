@@ -30,7 +30,7 @@
 
           @if (Auth::guest())
             <div class="col">
-            <form action="{{route('ruta_afegir_carro', ['producte'=>$producte->id])}}">
+            <form action="{{route('ruta_afegir_carro', ['producte'=>$producte->id,'rid'=>"nullo"])}}">
               <button class="float-right"style="border:none; background-color: transparent;"><i class=" btn btn-success far fa-plus-square"></i></button></i>
             </form>
           </div>

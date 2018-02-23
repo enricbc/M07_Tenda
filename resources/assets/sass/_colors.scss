@@ -76,16 +76,16 @@ $theme-color-interval: 8% !default;
 //# Selecció (ratolí)
 //# ---------------------------------------------------------------------
 *::-moz-selection { /* Code for Firefox */
-  color: $white;
-  background: $cream;
+  color: $gray-800;
+  background: #99cda9;
 }
 
 *::selection {
-  color: $white;
-  background: $cream;
+  color: $gray-800;
+  background: #99cda9;
 }
 
-//# Color de fons
+//# Color quan seleccionem text
 //# ---------------------------------------------------------------------
 .bg-cream {
   background-color: $cream;

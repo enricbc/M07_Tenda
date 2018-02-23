@@ -21,7 +21,7 @@
         ]) !!};
     </script>
 </head>
-<body style="background-color:#ecf0ff;">
+<body style="background-image:url('https://source.unsplash.com/featured/?shop');background-repeat: no-repeat;background-size:cover;height: 100vh;">
   <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-primary navbar-static-top">
     <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}
@@ -41,24 +41,15 @@
         </li>
 
         <li style="margin-left: 84em;"class="nav-item active navbar-nav float-right">
-            <a style=" padding:0px;margin-left: -350px;"class="nav-link" href="{{ route('ruta_carro') }}">
+            <a style=" padding:0px;"class="nav-link" href="{{ route('ruta_carro') }}">
 				      <i style="font-size:30px;"class="fas fa-shopping-basket"></i>
               <span class="badge badge-info">{{Cart::count()}}</span>
 			</a>
         </li>
     @else
-      @can('crear_productes') <!-- Visble solament pels usuaris amb permisos per a crear productes--> 
-        <li class="nav-item active navbar-nav">
-          
-            <a class="nav-link" href="{{ route('ruta_crear_producte') }}">Crear producte</a>
-        </li>
-      @endcan
-      @can('llistar_usuaris')
-          <li class="nav-item active navbar-nav">
-          
-            <a class="nav-link" href="{{ route('llistar_usuaris') }}">Llistar usuaris</a>
-        </li>
-      @endcan
+      <li class="nav-item active navbar-nav">
+          <a class="nav-link" href="{{ route('ruta_crear_producte') }}">Crear producte</a>
+      </li>
         <li class="nav-item active navbar-nav dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" >
             {{ Auth::user()->name }} <span class="caret"></span>
@@ -73,6 +64,7 @@
                 {{ csrf_field() }}
             </form>
           </div>
+
       </li>
     @endif
   </div>
