@@ -20,27 +20,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //$users = User::with('roles')->get();
+        /* Crea una col·lecció amb tots els usuaris */
         $users = User::all();
-  
-        /*$query = "SELECT u.id,u.name as usuari,u.email,r.name as rol, (
-
-                        SELECT p.name
-                        FROM permissions as p
-                        LEFT JOIN role_has_permissions as rhp
-                        ON rhp.permission_id = p.id
-                        LEFT JOIN roles ro
-                        ON ro.id = rhp.role_id
-                        WHERE ro.id = r.id) as permis
-
-                  FROM users as u
-                  LEFT JOIN roles as r
-                  ON u.id_role = r.id";*/
-
-        //$query2 ="SELECT "           
-
-       // $users = DB::select($query);
-        //dd($users);
+        
+        /* Retorna la col·lecció amb els usuaris a la vista 'users.index' */
         return view('users.index')->with('users',$users);
     }
 

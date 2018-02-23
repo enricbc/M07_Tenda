@@ -42,7 +42,7 @@
         </li>
 
         <li style="margin-left: 84em;"class="nav-item active navbar-nav float-right">
-            <a style=" padding:0px;"class="nav-link" href="<?php echo e(route('ruta_carro')); ?>">
+            <a style=" padding:0px;margin-left: -350px;"class="nav-link" href="<?php echo e(route('ruta_carro')); ?>">
 				      <i style="font-size:30px;"class="fas fa-shopping-basket"></i>
               <span class="badge badge-info"><?php echo e(Cart::count()); ?></span>
 			</a>
