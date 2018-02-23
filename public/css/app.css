@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lobster|Quicksand);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Cabin|Lobster|Quicksand);@charset "UTF-8";
 
 /* Mis colores */
 
@@ -10059,8 +10059,8 @@ a.text-dark:focus {
 }
 
 .shadow-sup-2i {
-  -webkit-box-shadow: inset 0 13px 13px -13px rgba(0, 0, 0, 0.7);
-          box-shadow: inset 0 13px 13px -13px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: inset 0 24px 13px -13px rgba(0, 0, 0, 0.7);
+          box-shadow: inset 0 24px 13px -13px rgba(0, 0, 0, 0.7);
 }
 
 .shadow-sup-3i {
@@ -10081,8 +10081,8 @@ a.text-dark:focus {
 }
 
 .shadow-inf-2i {
-  -webkit-box-shadow: inset 0 -13px 13px -13px rgba(0, 0, 0, 0.7);
-          box-shadow: inset 0 -13px 13px -13px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: inset 0 -20px 27px -6px rgba(0, 0, 0, 0.8);
+          box-shadow: inset 0 -20px 27px -6px rgba(0, 0, 0, 0.8);
 }
 
 .shadow-inf-3i {
@@ -10157,12 +10157,28 @@ nav > a {
 
 p {
   font-size: 115%;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Cabin', sans-serif;
 }
 
 #title {
   font-family: 'Lobster', cursive;
   font-size: 59px;
   font-weight: 50;
+}
+
+.zoom {
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+  /* Animation */
+  width: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
