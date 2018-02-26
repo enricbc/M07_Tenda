@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <!--Comensar carrousel-->
+  <!--Començar carrousel-->
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner shadow-all-3i" style="" id="splash">
     @for ($i=0; $i < 3; $i++)
@@ -54,6 +54,21 @@
 
               @else
                 <small class="float-right pl-5" >
+
+              @can('editar_productes')
+                <a href="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}"class="btn btn-info">Editar</a>
+              @endcan
+              @can('eliminar_productes')
+                <form action="{{route('ruta_eliminar_producte', ['producte'=>$producte->id])}}" method="POST">
+                  {{csrf_field()}}
+                  {{method_field('DELETE')}}
+                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+              @endcan
+              </small>
+            @endif
+
+
               <a href="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}"class="btn btn-info">Editar</a>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#comprovarEliminar">
@@ -87,6 +102,7 @@
                 <button type="submit" class="btn btn-danger">Eliminar</button>
               </form>
             </div>
+
           </div>
         </div>
       </div>

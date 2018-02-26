@@ -178,6 +178,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /* Laravel-permission per a crear rols d'usuaris */
+        Spatie\Permission\PermissionServiceProvider::class,
+
     ],
 
     /*
