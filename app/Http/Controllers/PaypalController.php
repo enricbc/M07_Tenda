@@ -8,6 +8,8 @@ use URL;
 use Session;
 use Redirect;
 use Input;
+use Cart;
+use App\Producte;
 
 /** All Paypal Details class **/
 use PayPal\Rest\ApiContext;
@@ -151,6 +153,14 @@ class PaypalController extends HomeController
 
             /** it's all right **/
             /** Here Write your database logic like that insert record or value in database if you want **/
+
+            /*CODI ENRIC*/
+            foreach (Cart::content() as $carro){
+              $pr=Producte::find($carro->id);
+              $pr->actualitzarStock($carro->qty);
+            }
+            Cart::destroy();
+
 
             \Session::put('success','Payment success');
             return Redirect::route('paywithpaypal');

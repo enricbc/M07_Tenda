@@ -1,8 +1,27 @@
+$(function () {
+  /*
+  # Twitter Bootstrap
+  --------------------------------------------------------------------------- */
+  /*
+  ## Tooltips
+  --------------------------------------------------------------------------- */
+  $('[data-toggle="tooltip"]').tooltip()
 
-$(function() {
-  var shine = new Shine(document.getElementById('shine'));
 
-  shine.light.position.x = window.innerWidth * 0.5;
-  shine.light.position.y = window.innerHeight * 0.5;
-  shine.draw(); // make sure to re-draw
+  /*
+  # Editor de text
+  --------------------------------------------------------------------------- */
+  /*
+  ## Summernote
+  --------------------------------------------------------------------------- */
+  $('textarea#summernote').summernote({
+    placeholder: 'Descriu el producte',
+    tabsize: 2,
+    height: 350,
+    lang: 'ca-ES',
+    codemirror: { // codemirror options
+  theme: 'paper'
+}
+  });
+
 });
