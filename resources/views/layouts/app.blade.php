@@ -50,18 +50,9 @@
 			</a>
         </li>
     @else
-      @can('crear_productes') <!-- Visble solament pels usuaris amb permisos per a crear productes--> 
-        <li class="nav-item active navbar-nav">
-          
-            <a class="nav-link" href="{{ route('ruta_crear_producte') }}">Crear producte</a>
-        </li>
-      @endcan
-      @can('llistar_usuaris')
-          <li class="nav-item active navbar-nav">
-          
-            <a class="nav-link" href="{{ route('llistar_usuaris') }}">Llistar usuaris</a>
-        </li>
-      @endcan
+      <li class="nav-item active navbar-nav">
+          <a class="nav-link" href="{{ route('ruta_crear_producte') }}">Crear producte</a>
+      </li>
         <li class="nav-item active navbar-nav dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" >
             {{ Auth::user()->name }} <span class="caret"></span>
@@ -76,6 +67,7 @@
                 {{ csrf_field() }}
             </form>
           </div>
+
       </li>
     @endif
   </div>
