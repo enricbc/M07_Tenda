@@ -31,7 +31,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*Afegir al carro*/
-Route::name('ruta_afegir_carro')->get('/carro/{producte}', 'CarroController@afegir');
+Route::name('ruta_afegir_carro')->get('/carro/k/{producte}/{rid?}', 'CarroController@afegir');
 /*Mostrar carro*/
 Route::name('ruta_carro')->get('/carro', 'CarroController@index');
 /*Eliminar carro*/
@@ -52,3 +52,28 @@ Route::get('/users', 'UserController@index')->name('llistar_usuaris');
 );*/
 
 //Route::get('users/{id}/llistar_usuaris', 'NotesController@destroy')->name('notes.destroy');
+
+//GOOGLE LOGIN
+Route::name('google')->get('google', function () {
+    return view('googleAuth');
+});
+
+//redirect and callback URLs
+
+Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
+//PDF
+Route::get('carro/pdf', 'PDFController@pdfcarro')->name('ruta_pdf_carro');
+Route::get('/j', 'PDFController@index')->name('productos');
+Route::get('/s', 'PDFController@pdf')->name('ruta_pdf_productes');
+
+/*PAYPAL*/
+
+// route for view/blade file
+Route::get('paywithpaypal', array('as' => 'paywithpaypal','uses' => 'PaypalController@payWithPaypal',));
+// route for post request
+Route::post('paypal', array('as' => 'paypal','uses' => 'PaypalController@postPaymentWithpaypal',));
+// route for check status responce
+Route::get('paypal', array('as' => 'status','uses' => 'PaypalController@getPaymentStatus',));
+
+Route::view('/rss', 'rss.xml')->name('rss');

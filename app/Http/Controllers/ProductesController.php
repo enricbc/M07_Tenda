@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\UrlGenerator;
 use App\Http\Requests\RequestCrearProducte;
 use App\Http\Requests\RequestActualitzarProducte;
+use App\Http\Requests\RequestActualitzarStockProducte;
 use Illuminate\Http\Requests;
 use App\Producte;
 
@@ -98,5 +99,13 @@ class ProductesController extends Controller
       session()->flash('misatge','Producte Eliminat!'); //Flash perque un cop creat es eliminat
 
       return redirect()->route('ruta_productes');
+    }
+    public function actualitzarStock($quantitat)
+    {
+
+      $producte->update(
+        $qunatitat
+      );
+
     }
 }
