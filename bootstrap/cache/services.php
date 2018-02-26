@@ -26,12 +26,16 @@
     22 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     23 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
     24 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    25 => 'Spatie\\Permission\\PermissionServiceProvider',
-    26 => 'App\\Providers\\AppServiceProvider',
-    27 => 'App\\Providers\\AuthServiceProvider',
-    28 => 'App\\Providers\\EventServiceProvider',
-    29 => 'App\\Providers\\RouteServiceProvider',
-    30 => 'Spatie\\Permission\\PermissionServiceProvider',
+    25 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    26 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+    27 => 'Spatie\\Permission\\PermissionServiceProvider',
+    28 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+    29 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    30 => 'App\\Providers\\AppServiceProvider',
+    31 => 'App\\Providers\\AuthServiceProvider',
+    32 => 'App\\Providers\\EventServiceProvider',
+    33 => 'App\\Providers\\RouteServiceProvider',
+    34 => 'Spatie\\Permission\\PermissionServiceProvider',
   ),
   'eager' => 
   array (
@@ -47,12 +51,14 @@
     9 => 'Illuminate\\View\\ViewServiceProvider',
     10 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     11 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
-    12 => 'Spatie\\Permission\\PermissionServiceProvider',
-    13 => 'App\\Providers\\AppServiceProvider',
-    14 => 'App\\Providers\\AuthServiceProvider',
-    15 => 'App\\Providers\\EventServiceProvider',
-    16 => 'App\\Providers\\RouteServiceProvider',
-    17 => 'Spatie\\Permission\\PermissionServiceProvider',
+    12 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    13 => 'Spatie\\Permission\\PermissionServiceProvider',
+    14 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    15 => 'App\\Providers\\AppServiceProvider',
+    16 => 'App\\Providers\\AuthServiceProvider',
+    17 => 'App\\Providers\\EventServiceProvider',
+    18 => 'App\\Providers\\RouteServiceProvider',
+    19 => 'Spatie\\Permission\\PermissionServiceProvider',
   ),
   'deferred' => 
   array (
@@ -153,6 +159,7 @@
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
+    'Laravel\\Socialite\\Contracts\\Factory' => 'Laravel\\Socialite\\SocialiteServiceProvider',
   ),
   'when' => 
   array (
@@ -193,6 +200,9 @@
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Socialite\\SocialiteServiceProvider' => 
     array (
     ),
   ),

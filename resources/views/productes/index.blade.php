@@ -74,9 +74,9 @@
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#comprovarEliminar">
                 Eliminar
               </button>
-              
+
               </small>
-            @endif
+
 
           </div>
         </div>
