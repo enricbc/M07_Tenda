@@ -1,0 +1,65 @@
+<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<channel>
+<title>M07_Tenda</title>
+<description>M07_Tenda</description>
+<pubDate>Fri, 23 Feb 2018 19:38:48 +0000</pubDate>
+<generator>FetchRSS</generator>
+<link>http://gspd.cat/m07tenda/public/</link>
+<atom:link href="http://fetchrss.com/rss/5a906dba8a93f8d3168b4567525853470.xml" rel="self" type="application/rss+xml"/>
+<image>
+<link>http://gspd.cat/m07tenda/public/</link>
+<url>
+http://www.google.com/s2/favicons?domain=http://gspd.cat
+</url>
+<title>M07_Tenda</title>
+</image>
+<item>
+<title>432423</title>
+<link>http://gspd.cat/m07tenda/public/productes/4</link>
+<description>
+<![CDATA[
+<img src="42342" height="200px"><br><br><div class="card-body p-0 bg-light"> <div class="container"> <div class="row mt-1"> <div class="col"> <h6 class="text-center">432423</h6> <h5 class="text-center my-0">4324.00 €</h5> </div> </div> </div> </div> <br /> <br /><span style="font-size:12px; color: gray;">(RSS generated with <a href="http://fetchrss.com" target="_blank"><img src="http://fetchrss.com/img/favicon.png" width="12" height="12"> FetchRss</a>)</span>
+]]>
+</description>
+<pubDate>Fri, 23 Feb 2018 19:38:11 +0000</pubDate>
+<media:content url="42342" height="200px"/>
+<guid>http://gspd.cat/m07tenda/public/productes/4</guid>
+</item>
+<item>
+<title>3213213</title>
+<link>http://gspd.cat/m07tenda/public/productes/3</link>
+<description>
+<![CDATA[
+<img src="312312" height="200px"><br><br><div class="card-body p-0 bg-light"> <div class="container"> <div class="row mt-1"> <div class="col"> <h6 class="text-center">3213213</h6> <h5 class="text-center my-0">12.00 €</h5> </div> </div> </div> </div> <br /> <br /><span style="font-size:12px; color: gray;">(RSS generated with <a href="http://fetchrss.com" target="_blank"><img src="http://fetchrss.com/img/favicon.png" width="12" height="12"> FetchRss</a>)</span>
+]]>
+</description>
+<pubDate>Fri, 23 Feb 2018 19:38:11 +0000</pubDate>
+<media:content url="312312" height="200px"/>
+<guid>http://gspd.cat/m07tenda/public/productes/3</guid>
+</item>
+<item>
+<title>erqwrwqrwq</title>
+<link>http://gspd.cat/m07tenda/public/productes/2</link>
+<description>
+<![CDATA[
+<img src="rqwrqwrq" height="200px"><br><br><div class="card-body p-0 bg-light"> <div class="container"> <div class="row mt-1"> <div class="col"> <h6 class="text-center">erqwrwqrwq</h6> <h5 class="text-center my-0">0.00 €</h5> </div> </div> </div> </div> <br /> <br /><span style="font-size:12px; color: gray;">(RSS generated with <a href="http://fetchrss.com" target="_blank"><img src="http://fetchrss.com/img/favicon.png" width="12" height="12"> FetchRss</a>)</span>
+]]>
+</description>
+<pubDate>Fri, 23 Feb 2018 19:38:11 +0000</pubDate>
+<media:content url="rqwrqwrq" height="200px"/>
+<guid>http://gspd.cat/m07tenda/public/productes/2</guid>
+</item>
+<item>
+<title>tdwtwagsdg</title>
+<link>http://gspd.cat/m07tenda/public/productes/1</link>
+<description>
+<![CDATA[
+<img src="http://gspd.cat/m07tenda/public/images/1518723453.jpg" height="200px"><br><br><div class="card-body p-0 bg-light"> <div class="container"> <div class="row mt-1"> <div class="col"> <h6 class="text-center">tdwtwagsdg</h6> <h5 class="text-center my-0">123.00 €</h5> </div> </div> </div> </div> <br /> <br /><span style="font-size:12px; color: gray;">(RSS generated with <a href="http://fetchrss.com" target="_blank"><img src="http://fetchrss.com/img/favicon.png" width="12" height="12"> FetchRss</a>)</span>
+]]>
+</description>
+<pubDate>Fri, 23 Feb 2018 19:38:11 +0000</pubDate>
+<media:content url="http://gspd.cat/m07tenda/public/images/1518723453.jpg" height="200px"/>
+<guid>http://gspd.cat/m07tenda/public/productes/1</guid>
+</item>
+</channel>
+</rss>

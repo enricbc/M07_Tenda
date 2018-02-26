@@ -89,10 +89,7 @@
   'font awesome 5 free' => array(
     'normal' => $fontDir . '\47c5b2d00d8b1faca2dfa5330db572f6',
   ),
-  'font awesome\\ 5 brands' => array(
-    'normal' => $fontDir . '\fd91aa5e3373ef491ab1f7d3d1103892',
-  ),
-  'font awesome\\ 5 free' => array(
-    'normal' => $fontDir . '\47c5b2d00d8b1faca2dfa5330db572f6',
+  'cabin' => array(
+    'normal' => $fontDir . '\0aa0000f7ea20ff89f7834d3f748efe4',
   ),
 ) ?>

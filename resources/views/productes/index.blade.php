@@ -24,11 +24,14 @@
 </div>
 </div>
   <!-- Final carrousel-->
+  <div class=" shadow-sup-2i container col-12" style="height:42px;width:100%;">
+
+  </div>
 <div class="container mt-5">
   <div class="row mt-5">
   @foreach ($productes as $producte)
-      <div class="col-sm-4">
-        <div class="card my-4" style="height: 18em;width:20em">
+      <div class="col-sm-4 card-deck">
+        <div class="card border-primary my-4" style="height: 18em;width:20em">
           @if (Auth::guest())
             <a href="{{ route('ruta_producte', ['producte'=>$producte->id])}}"><img class="card-img-top" height="200px"src="{{$producte->url}}" alt=""></a>
           <div class="card-body p-0 bg-light" >
@@ -52,26 +55,52 @@
               @else
                 <small class="float-right pl-5" >
               <a href="{{route('ruta_editar_producte', ['producte'=>$producte->id])}}"class="btn btn-info">Editar</a>
-              <form action="{{route('ruta_eliminar_producte', ['producte'=>$producte->id])}}" method="POST">
-                {{csrf_field()}}
-                {{method_field('DELETE')}}
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-              </form>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#comprovarEliminar">
+                Eliminar
+              </button>
+              
               </small>
             @endif
 
           </div>
         </div>
       </div>
-
+      <!-- Modal -->
+      <div class="modal fade" id="comprovarEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="comprovarEliminar">Eliminar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Segur que vols eliminar el producte</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <form action="{{route('ruta_eliminar_producte', ['producte'=>$producte->id])}}" method="POST">
+                {{csrf_field()}}
+                {{method_field('DELETE')}}
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
   @endforeach
 
   </div>
 </div>
-<div class=" container col-2 mt-4">
+<div class=" container col-2 mt-4 ">
   <div class="row ">
     {{$productes->render("pagination::bootstrap-4")}}
   </div>
+</div>
+<div class="shadow-inf-2i"  style="height:42px;width:100%;">
+
 </div>
 
 @endsection

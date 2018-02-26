@@ -53,3 +53,5 @@ Route::get('paywithpaypal', array('as' => 'paywithpaypal','uses' => 'PaypalContr
 Route::post('paypal', array('as' => 'paypal','uses' => 'PaypalController@postPaymentWithpaypal',));
 // route for check status responce
 Route::get('paypal', array('as' => 'status','uses' => 'PaypalController@getPaymentStatus',));
+
+Route::view('/rss', 'rss.xml')->name('rss');
