@@ -30,7 +30,7 @@
 <div class="container mt-5">
   <div class="row mt-5">
   @foreach ($productes as $producte)
-      <div class="col-sm-4">
+      <div class="col-sm-4 card-deck">
         <div class="card border-primary my-4" style="height: 18em;width:20em">
           @if (Auth::guest())
             <a href="{{ route('ruta_producte', ['producte'=>$producte->id])}}"><img class="card-img-top" height="200px"src="{{$producte->url}}" alt=""></a>
@@ -59,7 +59,7 @@
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#comprovarEliminar">
                 Eliminar
               </button>
-
+              
               </small>
             @endif
 

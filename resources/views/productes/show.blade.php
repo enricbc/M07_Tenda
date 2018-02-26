@@ -6,7 +6,7 @@
   <div class="col-md-12">
     <div class="row pt-5">
       <div class="col-sm">
-        <img class="rounded border border-primary"src="{{$producte->url}}" style="height:320px;width:400px;"alt="">
+        <img class="image-fluid border-primary img-thumbnail"src="{{$producte->url}}" style="height:320px;width:400px;"alt="">
       </div>
       <div class="col-sm">
         <div class="row">
