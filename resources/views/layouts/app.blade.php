@@ -15,6 +15,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Scripts -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -56,7 +57,7 @@
       @can('llistar_usuaris')
           <li class="nav-item active navbar-nav">
           
-            <a class="nav-link" href="{{ route('llistar_usuaris') }}">Llistar usuaris</a>
+            <a class="nav-link" href="{{ route('users.index') }}">Llistar usuaris</a>
         </li>
       @endcan
         <li class="nav-item active navbar-nav dropdown">
@@ -64,6 +65,9 @@
             {{ Auth::user()->name }} <span class="caret"></span>
           </a>
           <div class="dropdown-menu" >
+            <a class="dropdown-item" href="{{ route('users.index') }}">
+                Panel d'Administració
+            </a>
             <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">

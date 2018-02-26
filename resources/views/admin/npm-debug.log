@@ -1,0 +1,70 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'laravelcollective/html:',
+1 verbose cli   '~5.0' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData laravelcollective/html:
+8 silly fetchPackageMetaData ~5.0
+9 silly fetchOtherPackageData laravelcollective/html:
+10 silly cache add args [ 'laravelcollective/html:', null ]
+11 verbose cache add spec laravelcollective/html:
+12 silly fetchOtherPackageData ~5.0
+13 silly cache add args [ '~5.0', null ]
+14 verbose cache add spec ~5.0
+15 silly cache add parsed spec Result {
+15 silly cache add   raw: 'laravelcollective/html:',
+15 silly cache add   scope: null,
+15 silly cache add   name: null,
+15 silly cache add   rawSpec: 'laravelcollective/html:',
+15 silly cache add   spec: '/var/www/html/M07_tenda/resources/views/admin/laravelcollective/html:',
+15 silly cache add   type: 'local' }
+16 silly cache add parsed spec Result {
+16 silly cache add   raw: '~5.0',
+16 silly cache add   scope: null,
+16 silly cache add   name: null,
+16 silly cache add   rawSpec: '~5.0',
+16 silly cache add   spec: '/var/www/html/M07_tenda/resources/views/admin/~5.0',
+16 silly cache add   type: 'local' }
+17 error addLocal Could not install /var/www/html/M07_tenda/resources/views/admin/laravelcollective/html:
+18 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open '/var/www/html/M07_tenda/resources/views/admin/laravelcollective/html:'
+18 silly fetchPackageMetaData     at Error (native)
+18 silly fetchPackageMetaData  error for laravelcollective/html: { [Error: ENOENT: no such file or directory, open '/var/www/html/M07_tenda/resources/views/admin/laravelcollective/html:']
+18 silly fetchPackageMetaData   errno: -2,
+18 silly fetchPackageMetaData   code: 'ENOENT',
+18 silly fetchPackageMetaData   syscall: 'open',
+18 silly fetchPackageMetaData   path: '/var/www/html/M07_tenda/resources/views/admin/laravelcollective/html:' }
+19 error addLocal Could not install /var/www/html/M07_tenda/resources/views/admin/~5.0
+20 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open '/var/www/html/M07_tenda/resources/views/admin/~5.0'
+20 silly fetchPackageMetaData     at Error (native)
+20 silly fetchPackageMetaData  error for ~5.0 { [Error: ENOENT: no such file or directory, open '/var/www/html/M07_tenda/resources/views/admin/~5.0']
+20 silly fetchPackageMetaData   errno: -2,
+20 silly fetchPackageMetaData   code: 'ENOENT',
+20 silly fetchPackageMetaData   syscall: 'open',
+20 silly fetchPackageMetaData   path: '/var/www/html/M07_tenda/resources/views/admin/~5.0' }
+21 silly rollbackFailedOptional Starting
+22 silly rollbackFailedOptional Finishing
+23 silly runTopLevelLifecycles Starting
+24 silly runTopLevelLifecycles Finishing
+25 silly install printInstalled
+26 verbose stack Error: ENOENT: no such file or directory, open '/var/www/html/M07_tenda/resources/views/admin/laravelcollective/html:'
+26 verbose stack     at Error (native)
+27 verbose cwd /var/www/html/M07_tenda/resources/views/admin
+28 error Linux 4.4.0-109-generic
+29 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "laravelcollective/html:" "~5.0"
+30 error node v4.2.6
+31 error npm  v3.5.2
+32 error path /var/www/html/M07_tenda/resources/views/admin/laravelcollective/html:
+33 error code ENOENT
+34 error errno -2
+35 error syscall open
+36 error enoent ENOENT: no such file or directory, open '/var/www/html/M07_tenda/resources/views/admin/laravelcollective/html:'
+37 error enoent ENOENT: no such file or directory, open '/var/www/html/M07_tenda/resources/views/admin/laravelcollective/html:'
+37 error enoent This is most likely not a problem with npm itself
+37 error enoent and is related to npm not being able to find a file.
+38 verbose exit [ -2, true ]

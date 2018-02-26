@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Http\Auth;
+use App\Http\Controllers\View;
+use Validator;
+use Session;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 
 class UserController extends Controller
@@ -24,7 +29,7 @@ class UserController extends Controller
         $users = User::all();
         
         /* Retorna la col·lecció amb els usuaris a la vista 'users.index' */
-        return view('users.index')->with('users',$users);
+        return view('admin.users.index')->with('users',$users);
     }
 
     /**
@@ -33,8 +38,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+
+        return view('admin.users.create');
     }
 
     /**
@@ -44,8 +50,25 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+
+        $user = new User($request->all());             //creació de l'usuari amb la informació rebuda
+        $user->password = bcrypt($request->password);  //encriptació la contrasenya
+
+        list($id_role,$role_name) = explode(' - ',$request->role); //divisió de les dades "id_role" i "role_name" que s'han enviat juntes
+
+        /* Assignació de les dades del rol a l'usuari*/
+        $user->id_role = $id_role;    
+        $user->role_name = $role_name;
+
+        DB::table('model_has_roles')->insert(
+            ['role_id' => $user->id_role, 'model_id' => null, 'model_type' => 'App\User']
+        );
+
+        $user->save();
+        /* Assignació del rol a l'usuari*/
+        $user->assignRole($user->role_name);
+
     }
 
     /**
@@ -56,7 +79,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        // Obtenir l'usuari
+        $user = User::find($id);
+
+        // Mostrar la vista passant l'usuari
+        return view('admin.users.show')
+            ->with('user', $user);
     }
 
     /**
@@ -67,7 +95,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Obtenir l'usuari
+        $user = User::find($id);
+
+        // Mostrar la vista amb el formulari d'edició passant l'usuari
+        return view('admin.users.edit')
+            ->with('user', $user);
     }
 
     /**
@@ -77,9 +110,41 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'name'       => 'required',
+            'email'      => 'required|email',
+            'role_name' => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('admin.users/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            // store
+            $user = User::find($id);
+            $user->name       = Input::get('name');
+            $user->email      = Input::get('email');
+            $user->role_name = Input::get('role_name');
+
+            DB::table('model_has_roles')
+            ->where('model_id', $user->id)
+            ->update(['role_id' => $user->id_role]);
+            
+            $user->save();
+
+            
+
+            // redirect
+            Session::flash('message', 'Usuari modificat correctament!');
+            return Redirect::to('admin/users');
+        }
     }
 
     /**
@@ -91,24 +156,5 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-    }
-/////////////////////////////////////////////////////////////
-    public function roles_by_user($id)
-    {   
-        //$role = Role::findByName('Admin', 'web');
-        //$role = Role::with('users')->where('id', $request->id_role)->get();
-
-        //$user = DB::table('users')
-        //print_r($role->name) ;
-
-        //$roles = DB::table('roles')->pluck('id','name');
-        //$roles = Role::findById($id, 'web');
-        $query = "SELECT roles.name
-                  FROM roles
-                  LEFT JOIN users
-                  ON users.id_role = roles.id
-                  WHERE users.id_role = ".$id."";
-        $result = DB::select($query);
-        return view('users.index')->with($roles,$result);
     }
 }

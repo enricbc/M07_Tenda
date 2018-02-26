@@ -15,13 +15,14 @@
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Scripts -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>;
     </script>
 </head>
-<body style="background-color:#e5f4e7;">
+<body style="background-color:#ecf0ff;">
   <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-primary navbar-static-top">
     <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
         <?php echo e(config('app.name', 'Laravel')); ?>
@@ -57,7 +58,7 @@
       <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('llistar_usuaris')): ?>
           <li class="nav-item active navbar-nav">
           
-            <a class="nav-link" href="<?php echo e(route('llistar_usuaris')); ?>">Llistar usuaris</a>
+            <a class="nav-link" href="<?php echo e(route('users.index')); ?>">Llistar usuaris</a>
         </li>
       <?php endif; ?>
         <li class="nav-item active navbar-nav dropdown">
@@ -65,6 +66,9 @@
             <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
           </a>
           <div class="dropdown-menu" >
+            <a class="dropdown-item" href="<?php echo e(route('users.index')); ?>">
+                Panel d'Administració
+            </a>
             <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">

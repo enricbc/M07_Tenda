@@ -8,20 +8,17 @@
         "php": ">=7.0.0",
         "barryvdh/laravel-dompdf": "^0.8.2",
         "fideloper/proxy": "~3.3",
-<<<<<<< HEAD
         "gloudemans/notify": "^1.0",
         "gloudemans/shoppingcart": "^2.5",
-        "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0",
-        "spatie/laravel-permission": "^2.9"
-=======
-        "gloudemans/shoppingcart": "^2.4",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
-        "paypal/rest-api-sdk-php": "^1.13"
->>>>>>> c58626e3aad1382ffef773dc9b4b9ad8eb05e441
+        "laravelcollective/html": "^5.5",
+        "paypal/rest-api-sdk-php": "^1.13",
+        "spatie/laravel-permission": "^2.9",
+        "laravelcollective/html":"^5.5.0",
+        "tcg/voyager": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

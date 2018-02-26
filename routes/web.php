@@ -14,22 +14,35 @@ Route::group(['middleware'=>'auth'], function(){
 
   Route::name('ruta_eliminar_producte')->delete('/productes/{producte}', 'ProductesController@eliminar');
 
-  Route::get('/verificar/email/{code}', 'RegisterController@verify');
+  Route::get('/verificar/email/{code}', 'Auth\RegisterController@verify');
 });
 
+/* ===================================[ADMINISTRACIÓ]========================================= */
+
+Route::group(['prefix' => 'admin'], function() {
+
+    Route::resource('users','UserController');
+});
+
+//Route::get('/admin/panel', 'UserController@welcome')->name('panel_admin');
+//Route::get('admin.users.index', 'UserController@index')->name('llistar_usuaris');
+
+
+
+
+
+/* ===================================[PRODUCTES]============================================= */
 Route::get('/', 'ProductesController@index');
 /*TOTS ELS PRODUCTES*/
 Route::name('ruta_productes')->get('/productes', 'ProductesController@index');
 /*UN PRODUCTE*/
 Route::name('ruta_producte')->get('/productes/{producte}', 'ProductesController@show');
-/* PRODUCTE QUE VOLEM ELIMINAR */
-Route::get('productes/{id}/destroy', 'NotesController@destroy')->name('notes.destroy');
-
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+/* =================================[SHOPPING CART]============================================ */
 /*Afegir al carro*/
 Route::name('ruta_afegir_carro')->get('/carro/k/{producte}/{rid?}', 'CarroController@afegir');
 /*Mostrar carro*/
@@ -39,8 +52,9 @@ Route::name('ruta_eliminar_carro')->get('/carro/del/{producte}', 'CarroControlle
 /*Actualitzar carro*/
 Route::name('ruta_actualitzar_carro')->get('/carro/up/{producte}', 'CarroController@actualitzar');
 
-Route::get('/users', 'UserController@index')->name('llistar_usuaris');
 
+
+/*===================================[RUTES APIs DE TERCERS]==================================== */
 //GOOGLE LOGIN
 Route::name('google')->get('google', function () {
     return view('googleAuth');
