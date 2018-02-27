@@ -7,10 +7,10 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\Renderer;
+namespace Dompdf/Renderer;
 
-use Dompdf\Adapter\CPDF;
-use Dompdf\Frame;
+use Dompdf/Adapter/CPDF;
+use Dompdf/Frame;
 
 /**
  * Renders text frames

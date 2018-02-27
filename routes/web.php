@@ -24,8 +24,12 @@ Route::group(['prefix' => 'admin'], function() {
     Route::resource('users','UserController');
 });
 
-//Route::get('/admin/panel', 'UserController@welcome')->name('panel_admin');
-//Route::get('admin.users.index', 'UserController@index')->name('llistar_usuaris');
+Route::redrect('admin/users/searchform', 'admin/users/searchform')->name('users.searchform');
+Route::get('admin/users/searchform', 'UserController@redirect')->name('users.searchform');
+
+//Route::get('admin.users.searchform')->name('users.searchform');
+
+//Route::get("admin/users/search/{search}", "UserController@search")->name('users.search');*/
 
 
 
@@ -54,7 +58,11 @@ Route::name('ruta_actualitzar_carro')->get('/carro/up/{producte}', 'CarroControl
 
 
 
+
 /*===================================[RUTES APIs DE TERCERS]==================================== */
+
+Route::get('/users', 'UserController@index')->name('llistar_usuaris');
+
 //GOOGLE LOGIN
 Route::name('google')->get('google', function () {
     return view('googleAuth');
@@ -77,3 +85,6 @@ Route::get('paywithpaypal', array('as' => 'paywithpaypal','uses' => 'PaypalContr
 Route::post('paypal', array('as' => 'paypal','uses' => 'PaypalController@postPaymentWithpaypal',));
 // route for check status responce
 Route::get('paypal', array('as' => 'status','uses' => 'PaypalController@getPaymentStatus',));
+
+Route::view('/rss', 'rss.xml')->name('rss');
+

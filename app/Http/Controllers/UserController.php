@@ -77,16 +77,61 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($search)
+    {   
+        $search = urldecode($search);
+        $users = User::select()
+                ->where('name', 'LIKE', '%'.$search.'%')
+                ->orderBy('id', 'asc')
+                ->get();
+        
+        if (count($users) == 0){
+            return View('admin.users.show')
+            ->with('message', 'No s\'han trobat usuaris')
+            ->with('users', $users);
+        } else{
+            return View('admin.users.show')
+            ->with('users', $users)
+            ->with('users', $users);
+        }
+
         // Obtenir l'usuari
-        $user = User::find($id);
+        //$user = User::find($id);
 
         // Mostrar la vista passant l'usuari
-        return view('admin.users.show')
-            ->with('user', $user);
+        //return view('admin.users.show')
+            //->with('user', $user);
     }
 
+    public function redirect($search)
+    {
+        
+        if (empty($search)) return redirect()->back();
+
+        dd($search);
+        $user = urlencode(e($search));
+        $route = "admin.users.show/$user";
+
+        return redirect($route);
+    }
+
+    /*public function search($search){
+        $search = urldecode($search);
+        $users = User::select()
+                ->where('name', 'LIKE', '%'.$search.'%')
+                ->orderBy('id', 'asc')
+                ->get();
+        
+        if (count($users) == 0){
+            return View('admin.users.show')
+            ->with('message', 'No s\'han trobat usuaris')
+            ->with('search', $search);
+        } else{
+            return View('admin.users.show')
+            ->with('users', $users)
+            ->with('search', $search);
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *

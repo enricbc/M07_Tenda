@@ -8,6 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
+    <!--FAVICON-->
+    <link rel="shortcut icon" type="image/png" href="images/ag.png">
+
     <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Styles -->

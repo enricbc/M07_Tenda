@@ -8,12 +8,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
+    <link rel="shortcut icon" type="image/png" href="images/ag.png">
+
     <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Styles -->
 
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
     <!-- Scripts -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script>
@@ -23,77 +26,78 @@
     </script>
 </head>
 <body style="background-color:#ecf0ff;">
-  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-primary navbar-static-top">
-    <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-        <?php echo e(config('app.name', 'Laravel')); ?>
+  
+  <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('crear_productes')): ?>
 
-    </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <?php echo $__env->make('layouts.partials.admin_navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <?php if(Auth::guest()): ?>
-        <li class="nav-item  active navbar-nav">
-            <a class="nav-link" href="<?php echo e(route('login')); ?>">Login</a>
-        </li>
+  <?php else: ?> 
 
-        <li class="nav-item active navbar-nav">
-            <a class="nav-link" href="<?php echo e(route('register')); ?>">Register</a>
-        </li>
+    <?php echo $__env->make('layouts.partials.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-        <li style="margin-left: 84em;"class="nav-item active navbar-nav float-right">
-            <a style=" padding:0px;margin-left: -350px;"class="nav-link" href="<?php echo e(route('ruta_carro')); ?>">
-				      <i style="font-size:30px;"class="fas fa-shopping-basket"></i>
-              <span class="badge badge-info"><?php echo e(Cart::count()); ?></span>
-			</a>
-        </li>
-    <?php else: ?>
-      <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('crear_productes')): ?> <!-- Visble solament pels usuaris amb permisos per a crear productes--> 
-        <li class="nav-item active navbar-nav">
-          
-            <a class="nav-link" href="<?php echo e(route('ruta_crear_producte')); ?>">Crear producte</a>
-        </li>
-      <?php endif; ?>
-      <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('llistar_usuaris')): ?>
-          <li class="nav-item active navbar-nav">
-          
-            <a class="nav-link" href="<?php echo e(route('users.index')); ?>">Llistar usuaris</a>
-        </li>
-      <?php endif; ?>
-        <li class="nav-item active navbar-nav dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" >
-            <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
-          </a>
-          <div class="dropdown-menu" >
-            <a class="dropdown-item" href="<?php echo e(route('users.index')); ?>">
-                Panel d'Administració
-            </a>
-            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
-                onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">
-                Sortir
-            </a>
-            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
-                <?php echo e(csrf_field()); ?>
-
-            </form>
-          </div>
-      </li>
-    <?php endif; ?>
-  </div>
-</nav>
+  <?php endif; ?>
   <!--MARKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
 
   <?php echo $__env->make('layouts._errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   <?php echo $__env->make('layouts._misatges', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   <?php echo $__env->yieldContent('content'); ?>
 
-
-
+  <section style="background-color:#868e96;"class="pb-1 rounded-top ">
+    <div class="container ">
+          <div class="media-container-row content mbr-white">
+              <div class="col-md-3 pt-3 col-sm-4 text-primary">
+                  <h5 style="text-shadow: 2px 2px #e5f4e7" id="title">Antique Gravity</h5>
+              </div>
+              <div class="row">
+              <div class="col-md-8 col-sm-8">
+                  <p class="mb-4 foot-title mbr-fonts-style display-7">Nosaltres</p>
+                  <p class="mbr-text mbr-fonts-style foot-text display-7">Aliquam eget viverra diam. Vivamus efficitur odio eu metus tincidunt consectetur sit amet ut magna. Duis sed ligula eu eros volutpat sagittis ut eu metus. Nulla vehicula non ipsum id dignissim.</p>
+              </div>
+              <div class="container col-4" style="font-size: -webkit-xxx-large;text-shadow: 2px 2px #e5f4e7;">
+                <div class="row">
+                  <div class="col-4 zoom">
+                    <i class="fab fa-tumblr-square"></i>
+                  </div>
+                  <div class="col-4 zoom">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="col-4 zoom">
+                    <i class="fab fa-facebook-square"></i>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4 zoom">
+                    <i class="fab fa-snapchat"></i>
+                  </div>
+                  <div class="col-4 zoom">
+                    <i class="fab fa-twitter"></i>
+                  </div>
+                  <div class="col-4 zoom">
+                    <i class="fab fa-telegram-plane"></i>
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+          <div class="footer-lower">
+              <div class="media-container-row">
+                  <div class="col-sm-12">
+                      <hr>
+                  </div>
+              </div>
+              <div class="media-container-row mbr-white">
+                  <div class="col-sm-12 copyright">
+                      <p class="mbr-text mbr-fonts-style display-7">
+                          © Copyright 2017 <a href="<?php echo e(route('rss')); ?>" class="text-white">Antique Gravity</a> - All Rights Reserved
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
     <!-- Scripts -->
-    <script type="text/javascript" src="<?php echo e(asset('js/app.js')); ?>">
-
-    </script>
+    <script type="text/javascript" src="<?php echo e(asset('js/app.js')); ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/lang/summernote-ca-ES.min.js"></script>
 </body>
 </html>

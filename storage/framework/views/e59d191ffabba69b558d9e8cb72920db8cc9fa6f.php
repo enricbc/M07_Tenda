@@ -20,11 +20,13 @@
 		  <tbody>
 		    <div class="row">
 	            <tr class="table-warning">
+	            	<?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	                <td class="col-1 text-center align-middle"><?php echo e($user->id); ?></td>
 	                <td class="col-2 text-center align-middle"><?php echo e($user->name); ?></td>
 	                <td class="col-3 text-center align-middle"><?php echo e($user->email); ?></td>
 	                <td class="col-2 text-center align-middle"><?php echo e($user->getRoleNames()->implode('name')); ?> </td>
-	                <td class="col-2 text-center align-middle"><?php echo e($user->getAllPermissions()->implode('name', ', ')); ?></td>                
+	                <td class="col-2 text-center align-middle"><?php echo e($user->getAllPermissions()->implode('name', ', ')); ?></td>
+	                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>               
 	                <td class="col-2 text-center align-middle">
 	                	<button type="button" style="margin-left: 10px;" class="btn btn btn-info btn-sm">Editar
 	                	</button>
